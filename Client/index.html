@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <script src="signalr.min.js"></script>
+    <script src="jquery.min.js"></script>
+
+    <script>
+        $(document).ready(()=>{
+
+                let connection=new signalR.HubConnectionBuilder()
+                                          .withUrl("https://localhost:7147/notification-hub")
+                                          .build();
+
+                connection.start();
+
+
+                connection.on("receiveMessage",message=>{
+                        console.log(message);
+                });
+
+              $("#btnSend").click(()=>{
+                    let email=$("#txEmail").val();
+                    let message=$("#txMessage").val();
+                    $.post("https://localhost:7147/api/messages/post",{
+                        toEmail:email,
+                        message:message
+                    })
+              });  
+        });
+    </script>
+
+
+</head>
+<body>
+<div id="notfication-div" style="background-color: cornflowerblue;color: aliceblue;"></div>
+<input type="email" id="txEmail" placeholder="Email"><br>
+<input type="text" id="txMessage" placeholder="Message">
+<button id="btnSend">Send</button>
+<h6>______________________________</h6>
+<div id="receivedMessage"></div>
+
+</body>
+</html>

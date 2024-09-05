@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "Web.Api.Controllers.MessagesController",
+    "Method": "Post",
+    "RelativePath": "api/Messages/{message}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ToEmail",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Message",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "message",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
