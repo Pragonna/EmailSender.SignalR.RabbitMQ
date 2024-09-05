@@ -7,7 +7,7 @@ namespace Business.SignalR
     {
         public async Task SendMessageAsync(string message)
         {
-            await Clients.All.ReceiveMessage(message);
+            await Clients.Caller.ReceiveMessage(message);
         }
     }
 }
